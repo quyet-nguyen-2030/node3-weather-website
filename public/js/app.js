@@ -10,9 +10,7 @@ weatherForm.addEventListener('submit', (e) => {
     const location = searchElement.value;
     messageOne.textContent = 'Loading...';
     messageTwo.textContent = '';
-    const url = 'http://localhost:3000/weather?place=' + encodeURIComponent(location)
-    console.log(url);
-    fetch('http://localhost:3000/weather?place=' + location)
+    fetch('/weather?place=' + location)
         .then((response) => {
             response.json() //call json to convert json to JVSCRIPT object :)
                 .then((data) => {

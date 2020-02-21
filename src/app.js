@@ -3,6 +3,7 @@ const express = require('express'); const hsb = require('hbs');
 
 const geoCode = require('./ultil/geocode'); const foreCast = require('./ultil/forecast');
 const app = express();
+const port = process.env.PORT || 3000;
 
 // Define path for Express config
 const publicDir = path.join(__dirname, '../public');
@@ -53,8 +54,8 @@ app.get('*', (req, res) => res.render('404', {
     title: '404 PAGE', errorMessage: 'PAGE NOT FOUND'
 }));
 
-const PORT = 3000;
-app.listen(PORT, () => { console.log('Server is up on port 3000'); });
+// const port = process.env.PORT || 3000;
+app.listen(port, () => { console.log('Server is up on port' + port); });
 
 
 // ALL THE ROUTE FOR REQUEST A STATIC FILE WILL BE HANDLE BY EXPRESS.STATIC METHOD
