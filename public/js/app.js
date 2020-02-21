@@ -21,8 +21,6 @@ weatherForm.addEventListener('submit', (e) => {
                         weatherForm.reset();
                     }
                     else {
-                        console.log(url);
-                        console.log(data.location, data);
                         messageOne.textContent = data.location;
                         messageTwo.textContent = data.data;
                         weatherForm.reset();
