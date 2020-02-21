@@ -17,8 +17,12 @@ const foreCast = (lat, lng, cb) => {
         if (err) {cb('Unable to connect to server', undefined);}
         else if (body.error) { cb('unable to find location', body.error ); }
         else {
-            cb (undefined, `${body.daily.data[0].summary} It is currently ${
-                body.currently.temperature} degreesC out. There\'s is a ${
+            // console.log(body.daily.data[0]);
+            cb (undefined, `${
+                body.daily.data[0].summary} It is currently ${
+                body.currently.temperature} degreesC out. The high temp. today is ${
+                body.daily.data[0].temperatureHigh}, with a low temp. of ${
+                body.daily.data[0].temperatureLow}. There\'s is a ${
                 body.currently.precipProbability} % chance of rain` )}
     }); }
 module.exports = foreCast;

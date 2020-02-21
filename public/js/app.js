@@ -4,7 +4,6 @@ const btnSubmitForm = document.querySelector('button');
 const messageOne = document.querySelector('#message-1');
 const messageTwo = document.querySelector('#message-2');
 
-// messageOne.textContent = 'Loading...';
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault(); // Prevent each time submit the form, browser be reloaded
     const location = searchElement.value;
@@ -14,18 +13,12 @@ weatherForm.addEventListener('submit', (e) => {
         .then((response) => {
             response.json() //call json to convert json to JVSCRIPT object :)
                 .then((data) => {
-                    // JSON.stringify(data);
-                    if (data.Error) { 
-                        console.log(data);
-                        messageOne.textContent = data.Error;
-                        weatherForm.reset();
+                    if (data.Error) { console.log(data);
+                        messageOne.textContent = data.Error; weatherForm.reset();
                     }
-                    else {
-                        messageOne.textContent = data.location;
-                        messageTwo.textContent = data.data;
-                        weatherForm.reset();
-                    }                })        })
-});
+                    else { messageOne.textContent = data.location;
+                        messageTwo.textContent = data.data; weatherForm.reset();
+                    }                })        }) });
 
 // FETCH api is only work for client side JavaScript (as it supported by browser)
 // fetch('http://puzzle.mead.io/puzzle')
